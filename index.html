@@ -41,8 +41,10 @@
 <body>
 
   <h1>TEAEGG Task Calendar</h1>
-  <h3>请输入任务：</h3>
-  <textarea id="tasksInput" placeholder="TEAEGG\n吃饭 40\n看书 60 西游记"></textarea><br>
+  <h3>Please enter your tasks：</h3>
+  <textarea id="tasksInput" placeholder="吃饭 40
+                                         看书 60 西游记">
+  </textarea><br>
   <button id="submitBtn">提交任务</button>
 
   <div id="response"></div>
@@ -51,7 +53,7 @@
     document.getElementById("submitBtn").addEventListener("click", function () {
       const tasks = document.getElementById("tasksInput").value.trim();
       if (!tasks) {
-        alert("请输入任务内容！");
+        alert("Please enter your tasks！");
         return;
       }
 
@@ -63,10 +65,10 @@
       fetch(url)
         .then(response => response.text())
         .then(text => {
-          document.getElementById("response").innerText = "任务提交成功！服务器返回：" + text;
+          document.getElementById("response").innerText = "Yesss！服务器返回：" + text;
         })
         .catch(err => {
-          document.getElementById("response").innerText = "提交失败：" + err;
+          document.getElementById("response").innerText = "Sorry：" + err;
         });
     });
   </script>
